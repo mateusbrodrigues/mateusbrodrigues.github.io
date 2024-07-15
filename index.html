@@ -1,97 +1,180 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Mateus Rodrigues</title>
     <link rel="icon" type="image/png" sizes="100x100" href="assets/img/monitor.png">
-    <link rel="icon" type="image/png" sizes="100x100" href="assets/img/monitor.png">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
-<body class="text-dark">
-    <main class="page cv-page">
-        <section class="portfolio-block block-intro border-bottom">
-            <div class="container" style="padding: 11px;">
-                <div class="border rounded-circle border-dark bounce animated avatar" style="background-image: url(&quot;https://avatars.githubusercontent.com/u/37751297?s=460&amp;u=538bf7e4f1a9e9c1e9778b44cc56bde02e53b8d5&amp;v=4&quot;);"></div>
-                <div class="about-me">
-                    <p>Hello! I am <strong>Mateus</strong>. Welcome to my page!</p>
+<body class="text-gray-900">
+    <header class="relative">
+        <nav class="bg-gray-900 text-white fixed w-full z-50">
+            <div class="container mx-auto flex items-center justify-between px-4 py-3">
+                <a class="text-xl font-bold" href="#">mateusbrodrigues</a>
+                <button class="block lg:hidden px-3 py-2 border rounded text-gray-200 border-gray-200 hover:text-white hover:border-white" id="nav-toggle">
+                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <title>Menu</title>
+                        <path d="M0 3h20v2H0zM0 7h20v2H0zM0 11h20v2H0z" />
+                    </svg>
+                </button>
+                <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="nav-content">
+                    <ul class="lg:flex lg:justify-end text-base text-gray-400 pt-4 lg:pt-0">
+                        <li><a class="lg:px-4 py-2 block hover:text-white" href="#projects">Projetos</a></li>
+                        <li><a class="lg:px-4 py-2 block hover:text-white" href="#skills">Habilidades</a></li>
+                        <li><a class="lg:px-4 py-2 block hover:text-white" href="#contact">Contato</a></li>
+                    </ul>
                 </div>
             </div>
-            <nav class="navbar navbar-dark navbar-expand-lg fixed-top portfolio-navbar gradient" style="color: rgb(255,255,255);">
-                <div class="container"><button class="navbar-toggler" data-toggle="collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
-            </nav>
-            <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark portfolio-navbar">
-                <div class="container"><a class="navbar-brand text-white logo" href="#">mateusbrodrigues</a><button data-toggle="collapse" class="navbar-toggler text-white" data-target="#navbarNav" style="border-style: none;"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon text-white"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item text-white item"><a class="nav-link active text-white" href="#">Home</a></li>
-                            <li class="nav-item item"><a class="nav-link text-white" href="https://github.com/mateusbrodrigues?tab=repositories">Projects</a></li>
-                            <li class="nav-item item"></li>
-                        </ul>
+        </nav>
+        <div class="bg-gray-900 text-white text-center py-20 pt-32">
+            <div class="container mx-auto">
+                <a href="https://avatars.githubusercontent.com/u/37751297?s=460&amp;u=538bf7e4f1a9e9c1e9778b44cc56bde02e53b8d5&amp;v=4" data-lightbox="image" data-title="Mateus Rodrigues">
+                    <div class="border-4 border-gray-900 rounded-full mx-auto" style="background-image: url('https://avatars.githubusercontent.com/u/37751297?s=460&amp;u=538bf7e4f1a9e9c1e9778b44cc56bde02e53b8d5&amp;v=4'); width: 150px; height: 150px; background-size: cover;"></div>
+                </a>
+                <h1 class="text-4xl mt-4">Mateus B. Rodrigues</h1>
+                <p class="text-lg mt-2"> Full Stack Developer</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="page">
+        <section id="projects" class="py-20">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold">Projetos</h2>
+                </div>
+                <div class="flex flex-wrap -mx-4">
+                    <div class="w-full md:w-1/3 px-4 mb-8">
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                            <a href="https://via.placeholder.com/800" data-lightbox="projects" data-title="Projeto 1">
+                                <img class="w-full" src="https://via.placeholder.com/300" alt="Projeto 1">
+                            </a>
+                            <div class="p-4">
+                                <h5 class="text-lg font-bold">Projeto 1</h5>
+                                <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 px-4 mb-8">
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                            <a href="https://via.placeholder.com/800" data-lightbox="projects" data-title="Projeto 2">
+                                <img class="w-full" src="https://via.placeholder.com/300" alt="Projeto 2">
+                            </a>
+                            <div class="p-4">
+                                <h5 class="text-lg font-bold">Projeto 2</h5>
+                                <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 px-4 mb-8">
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                            <a href="https://via.placeholder.com/800" data-lightbox="projects" data-title="Projeto 3">
+                                <img class="w-full" src="https://via.placeholder.com/300" alt="Projeto 3">
+                            </a>
+                            <div class="p-4">
+                                <h5 class="text-lg font-bold">Projeto 3</h5>
+                                <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </nav>
+            </div>
         </section>
-        <section class="portfolio-block cv">
-            <div class="container">
-                
-                <div class="heading">
-                    <h1> 🏗️ Building something here... 👷🏻🚧</h1>
+
+        <section id="skills" class="py-20 bg-gray-100">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">Habilidades</h2>
                 </div>
-                
-               <!--  <div class="work-experience group">
-                    <div class="heading">
-                        <h2 class="text-center">Work Experience</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+                    <div class="flex justify-center items-center">
+                        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000&style=for-the-badge" alt="JavaScript Badge">
                     </div>
-                    <div class="item"></div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h3>Técnico de Informática</h3>
-                                <h4 class="organization">Laticínio Scala<br></h4>
-                            </div>
-                            <div class="col-md-6"><span class="period">01/2017 - Atual</span></div>
-                        </div>
+                    <div class="flex justify-center items-center">
+                        <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff&style=for-the-badge" alt="TypeScript Badge">
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=for-the-badge" alt="React Badge">
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="https://img.shields.io/badge/Node.js-393?logo=nodedotjs&logoColor=fff&style=for-the-badge" alt="Node.js Badge">
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=fff&style=for-the-badge" alt="Flutter Badge">
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff&style=for-the-badge" alt="Python Badge">
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="https://img.shields.io/badge/R-276DC3?logo=r&logoColor=fff&style=for-the-badge" alt="R Badge">
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="https://img.shields.io/badge/Figma-F24E1E?logo=figma&logoColor=fff&style=for-the-badge" alt="Figma Badge">
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=000&style=for-the-badge" alt="Firebase Badge">
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?logo=microsoftsqlserver&logoColor=fff&style=for-the-badge" alt="Microsoft SQL Server Badge">
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="https://img.shields.io/badge/Oracle-F80000?logo=oracle&logoColor=fff&style=for-the-badge" alt="Oracle Badge">
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=fff&style=for-the-badge" alt="PostgreSQL Badge">
                     </div>
                 </div>
-                <div class="education group">
-                    <div class="heading">
-                        <h2 class="text-center">Education</h2>
-                    </div>
-                    <div class="item"></div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h3><strong>Engenharia de Software</strong></h3>
-                                <h4 class="organization">Uni-FACEF - Centro Universitário de Franca</h4>
-                            </div>
-                            <div class="col-md-6"><span class="period">2018 - 2021</span></div>
-                        </div>
-                    </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold">Contato</h2>
                 </div>
-                <div class="group"></div>
-                <div class="hobbies group">
-                    <div class="heading"></div>
-                </div> -->
+                <form class="max-w-lg mx-auto">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Nome</label>
+                        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+                        <input type="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="message">Mensagem</label>
+                        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="bg-gray-900 text-white py-2 px-4 rounded hover:bg-gray-700 focus:outline-none focus:shadow-outline">Enviar</button>
+                </form>
             </div>
         </section>
     </main>
-    <footer class="page-footer">
-        <div class="container">
-            <div class="social-icons"><a class="text-dark" href="https://github.com/mateusbrodrigues"><i class="icon ion-social-github border-dark"></i></a><a class="text-dark" href="https://www.linkedin.com/in/mateusbrodrigues/"><i class="icon ion-social-linkedin"></i></a></div>
+
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a class="text-white text-2xl hover:text-gray-400 transition duration-300" href="https://github.com/mateusbrodrigues" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a class="text-white text-2xl hover:text-gray-400 transition duration-300" href="https://www.linkedin.com/in/mateusbrodrigues/" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+            <p class="mb-0">&copy; 2024 Mateus B. Rodrigues</p>
         </div>
     </footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
