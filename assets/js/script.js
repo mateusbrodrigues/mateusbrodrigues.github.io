@@ -42,6 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
           imageMapping[repo.name] ||
           "https://via.placeholder.com/300?text=No+Image";
 
+        const repoUrl = `https://github.com/mateusbrodrigues/${repo.name}`;
+
         const projectElement = document.createElement("div");
         projectElement.className = "w-full md:w-1/3 px-4 mb-8";
 
@@ -55,10 +57,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }">
                       </a>
                       <div class="p-4">
-                          <h5 class="text-lg font-bold">${repo.name.replace(
-                            /-/g,
-                            " "
-                          )}</h5>
+                          <h5 class="text-lg font-bold">
+                            <a href="${repoUrl}" target="_blank" class="text-black-600 hover:underline">${
+          repo.name
+        }</a>
+                          </h5>
                           <p class="text-gray-600">${
                             repo.description || "Descrição não disponível."
                           }</p>
