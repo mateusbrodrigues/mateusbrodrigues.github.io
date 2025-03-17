@@ -43,7 +43,7 @@
             text-decoration: none;
             display: block;
             margin: 5px 0;
-            padding-left: 20px;
+            padding-left: 25px;
             position: relative;
         }
 
@@ -51,6 +51,10 @@
             content: "📁 ";
             position: absolute;
             left: 0;
+        }
+
+        a.secret-link:before {
+            content: "🌐 ";
         }
 
         a:hover {
@@ -86,15 +90,35 @@
         .loading {
             color: #00ff00;
         }
+
+        .typing-animation {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 2px solid #00ff00;
+            white-space: nowrap;
+            margin: 0;
+        }
+
+        .completed-typing {
+            border-right: none;
+        }
+
+        .secret-link {
+            color: #00ff00;
+            cursor: pointer;
+            display: inline-block;
+            margin-left: 5px;
+
+        }
     </style>
 </head>
 
 <body>
     <div class="terminal">
         <div class="header">
-            GitHub Pages Terminal - Last login:
-            <?php echo date('D M d H:i:s'); ?> UTC
+            GitHub Pages Terminal - Last login: <span id="datetime"></span> UTC
         </div>
+
 
         <div class="prompt">list-routes --github-user=mateusbrodrigues</div>
 
@@ -102,13 +126,53 @@
             <div class="loading">[●] Fetching routes from GitHub API...<span class="cursor"></span></div>
         </div>
 
-        <div class="prompt"><span class="cursor"></span></div>
+        <div id="additional-message"></div>
+        <div id="final-prompt"></div>
     </div>
 
+
     <script>
+
+        // Formata a data no estilo Unix
+        function formatUnixDate() {
+            const date = new Date();
+            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+            return `${days[date.getUTCDay()]} ${months[date.getUTCMonth()]} ${String(date.getUTCDate()).padStart(2, '0')} ` +
+                `${String(date.getUTCHours()).padStart(2, '0')}:` +
+                `${String(date.getUTCMinutes()).padStart(2, '0')}:` +
+                `${String(date.getUTCSeconds()).padStart(2, '0')}`;
+        }
+
+        // Atualiza o header
+        document.getElementById('datetime').textContent = formatUnixDate();
         // Configurações
         const GITHUB_USER = 'mateusbrodrigues';
         const TOPICO_FILTRO = null;
+        const SECRET_MESSAGE = "Please, feel free to visit my real website: ";
+        const WEBSITE_URL = "https://mateusb.com";
+        const TYPING_SPEED = 50;
+        const FINAL_PROMPT_DELAY = 1000;
+
+        async function typeText(element, text, callback) {
+            let index = 0;
+            const cursor = '<span class="cursor"></span>';
+
+            function type() {
+                if (index < text.length) {
+                    element.innerHTML = text.substring(0, index + 1) + cursor;
+                    index++;
+                    setTimeout(type, TYPING_SPEED);
+                } else {
+                    element.classList.add('completed-typing');
+                    if (callback) callback();
+                }
+            }
+
+            type();
+        }
 
         async function fetchRepos() {
             try {
@@ -136,6 +200,35 @@
                     routesContainer.appendChild(link);
                 });
 
+                // Adiciona mensagem especial após carregar
+                setTimeout(() => {
+                    const messageContainer = document.getElementById('additional-message');
+                    const newPrompt = document.createElement('div');
+                    newPrompt.className = 'prompt';
+                    newPrompt.innerHTML = '<span class="typing-animation"></span>';
+                    messageContainer.appendChild(newPrompt);
+
+                    const typingElement = newPrompt.querySelector('.typing-animation');
+                    typeText(typingElement, SECRET_MESSAGE, () => {
+                        typingElement.innerHTML = `
+                            ${SECRET_MESSAGE}
+                            <a href="${WEBSITE_URL}" class="secret-link">${WEBSITE_URL}</a>
+                        `;
+                        typingElement.classList.add('completed-typing');
+
+                        // Adiciona o prompt final após delay
+                        setTimeout(() => {
+                            const finalPrompt = document.getElementById('final-prompt');
+                            finalPrompt.innerHTML = `
+                                <div class="prompt">
+                                    see ya!
+                                    <span class="cursor"></span>
+                                </div>
+                            `;
+                        }, FINAL_PROMPT_DELAY);
+                    });
+                }, 500);
+
             } catch (error) {
                 document.getElementById('routes').innerHTML = `
                     <div class="error">
@@ -144,7 +237,7 @@
             }
         }
 
-        // Simula delay de terminal
+        // Simula delay do terminal
         setTimeout(fetchRepos, 1500);
     </script>
 </body>
